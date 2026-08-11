@@ -96,11 +96,10 @@ export default function App() {
         </form>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {messages.map((msg, index) => (
+          {messages.map((msg) => (
             <div
               key={msg.id}
-              className="group relative bg-slate-900/40 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all duration-300 backdrop-blur-sm flex flex-col justify-between space-y-4 animate-in fade-in slide-in-from-bottom-3 fill-mode-backwards"
-              style={{ animationDelay: `${index * 50}ms` }}
+              className="group relative bg-slate-900/40 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all duration-300 backdrop-blur-sm flex flex-col justify-between space-y-4 shadow-md"
             >
               <p className="text-sm text-slate-200 leading-relaxed whitespace-pre-wrap break-words">
                 {msg.content}
