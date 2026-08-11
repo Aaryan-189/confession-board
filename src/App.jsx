@@ -57,12 +57,11 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between py-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-zinc-900 text-zinc-100 flex flex-col justify-between py-12 px-4 sm:px-6">
       <div className="w-full max-w-2xl mx-auto space-y-8">
         
-        {/* Navigation Header */}
         <div className="flex items-center justify-between w-full">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-indigo-400 font-medium">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium" style={{ color: '#24b55e' }}>
             <Sparkles className="w-3.5 h-3.5" /> Live Anonymous Board
           </div>
           <Link
@@ -73,7 +72,6 @@ export default function App() {
           </Link>
         </div>
 
-        {/* Hero Section */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-300 to-slate-500 bg-clip-text text-transparent">
             Confessions Wall
@@ -83,7 +81,6 @@ export default function App() {
           </p>
         </div>
 
-        {/* Input Form */}
         <form onSubmit={handleSubmit} className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 sm:p-6 backdrop-blur-xl shadow-2xl space-y-4">
           <textarea
             value={content}
@@ -91,7 +88,10 @@ export default function App() {
             maxLength={250}
             rows={3}
             placeholder="What's on your mind?..."
-            className="w-full bg-slate-950/50 border border-slate-800 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+            className="w-full bg-slate-950/50 border border-slate-800 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none transition-colors resize-none"
+            style={{ focusBorderColor: '#24b55e' }}
+            onFocus={(e) => e.target.style.borderColor = '#24b55e'}
+            onBlur={(e) => e.target.style.borderColor = ''}
           />
           {error && <p className="text-xs text-rose-400">{error}</p>}
           <div className="flex items-center justify-between">
@@ -101,7 +101,8 @@ export default function App() {
             <button
               type="submit"
               disabled={loading || !content.trim()}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-600/20"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white text-sm font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+              style={{ backgroundColor: '#24b55e', boxShadow: '0 10px 25px -5px rgba(36, 181, 94, 0.3)' }}
             >
               <Send className="w-4 h-4" />
               {loading ? 'Sending...' : 'Confess'}
@@ -109,7 +110,6 @@ export default function App() {
           </div>
         </form>
 
-        {/* Message Grid / Empty State */}
         {messages.length === 0 ? (
           <div className="text-center py-12 bg-slate-900/20 border border-slate-800/50 rounded-2xl">
             <MessageSquare className="w-8 h-8 text-slate-600 mx-auto mb-2" />
@@ -140,14 +140,13 @@ export default function App() {
         )}
       </div>
 
-      {/* Professional Footer */}
       <footer className="w-full max-w-2xl mx-auto mt-16 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
         <div className="flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-indigo-400" />
+          <ShieldCheck className="w-4 h-4" style={{ color: '#24b55e' }} />
           <span>100% Secure & Encrypted Anonymity</span>
         </div>
         <div className="flex items-center gap-2">
-          <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+          <Activity className="w-3.5 h-3.5 animate-pulse" style={{ color: '#24b55e' }} />
           <span>Realtime Feed Operational</span>
         </div>
       </footer>
