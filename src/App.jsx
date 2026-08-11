@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
-import { Send, MessageSquare, Sparkles } from 'lucide-react'
+import { Send, MessageSquare, Sparkles, Layers } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function App() {
   const [messages, setMessages] = useState([])
@@ -58,10 +59,21 @@ export default function App() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center py-12 px-4 sm:px-6">
       <div className="w-full max-w-2xl space-y-8">
-        <div className="text-center space-y-2">
+        
+        {/* Header navigation bar */}
+        <div className="flex items-center justify-between w-full">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-emerald-400 font-medium">
             <Sparkles className="w-3.5 h-3.5" /> Live Anonymous Board
           </div>
+          <Link
+            to="/feed"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
+          >
+            <Layers className="w-3.5 h-3.5" /> View All Archive
+          </Link>
+        </div>
+
+        <div className="text-center space-y-2">
           <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">
             Confessions Wall
           </h1>
